@@ -1,7 +1,8 @@
 # calculo de salario, imposto e desconto, com base em horas trabalhadas e valor da hora, com base em uma classe
+# usar o padx = para distanciar os elementos na horizontal / pady = para distanciar os elementos na vertical 
 
 class Funcionario:
-    def __init__(self, nome, estadocivil, dependentes, departamento, cargo, horastrabalhadas, valorhora, diastrabalhados, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada):
+    def __init__(self, nome, estadocivil, dependentes, departamento, cargo, horastrabalhadas, valorhora, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada):
         self.nome = nome
         self.estadocivil = estadocivil
         self.dependentes = dependentes
@@ -9,7 +10,6 @@ class Funcionario:
         self.cargo = cargo
         self.horastrabalhadas = horastrabalhadas
         self.valorhora = valorhora
-        self.diastrabalhados = diastrabalhados
         self.valorhoraextra = valorhoraextra
         self.horaextra = horaextra
         self.baixamedica = baixamedica
@@ -37,8 +37,6 @@ class Funcionario:
     def cargo(self):
         return self.cargo
 
-    def diastrabalhados(self):
-        return self.diastrabalhados
 
     def valorhoraextra(self):
         return self.valorhoraextra
@@ -69,13 +67,12 @@ departamento = input('Digite o departamento do funcionario: \n')
 cargo = input('Digite o cargo do funcionario: \n')
 horastrabalhadas = int(input('Digite a quantidade de horas trabalhadas até o momento: \n'))
 valorhora = float(input('Digite o valor da hora trabalhada: \n'))
-diastrabalhados = int(input('Digite a quantidade de dias trabalhados até o momento: \n'))
 valorhoraextra = float(input('Digite o valor da hora extra: \n'))
 horaextra = int(input('Digite a quantidade de horas extras até o momento: \n'))
 baixamedica = int(input('Digite a quantidade de baixas medicas até o momento: \n'))
 iniciocontrato = str(input('Digite a data de inicio do contrato: \n'))
 morada = str(input('Digite a morada do funcionario: \n'))
-funcionario = Funcionario(nome, estadocivil, dependentes, cargo, horastrabalhadas, valorhora, diastrabalhados, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada,)
+funcionario = Funcionario(nome, estadocivil, dependentes, cargo, horastrabalhadas, valorhora, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada,)
 
 print(funcionario)
-print('Foi descontado 19% do salário e 30 euros por cada baixa medica.')
+

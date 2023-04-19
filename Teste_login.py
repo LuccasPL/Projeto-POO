@@ -51,7 +51,7 @@ def criar_tela_cadastro():
     cadastro_app.mainloop()
 
 app = tk.Tk()
-app.title("Tela de Login")
+app.title("Login")
 
 frame = tk.Frame(app)
 frame.pack(pady=10)

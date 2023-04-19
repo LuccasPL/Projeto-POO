@@ -1,6 +1,5 @@
 import tkinter as tk
 
-
 def registrar_trabalhador():
     nome = entry_nome.get()
     cargo = entry_cargo.get()
@@ -21,6 +20,10 @@ def registrar_trabalhador():
 
 app = tk.Tk()
 app.title("Registro de Trabalhadores")
+
+# adcionar um botao de logout
+botao_logout = tk.Button(app, text="Logout")
+botao_logout.grid(row=0, column=3)
 
 # Nome
 label_nome = tk.Label(app, text="Nome:")
