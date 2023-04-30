@@ -8,34 +8,247 @@ class Salario:
         self.dependentes = dependentes
         self.salario = salario
 
-    def estado_civil(self):
-        if self.estado_civil == 'S':
-            return 'Solteiro'
-        elif self.estado_civil == 'C':
-            return 'Casado'
-        elif self.estado_civil == 'V':
-            return 'Viúvo'
-        elif self.estado_civil == 'D':
-            return 'Divorciado'
+    def desconto_salario_1500_solteiro(self):
+        if (self.dependentes <= 1 and self.salario <= 1500 and self.estado_civil == 'S'):
+            return self.salario * 0.07
+        elif (self.dependentes == 2 and self.salario <= 1500 and self.estado_civil == 'S'):
+            return self.salario * 0.05
+        elif (self.dependentes == 3 and self.salario <= 1500 and self.estado_civil == 'S'):
+            return self.salario * 0.03
+        elif (self.dependentes == 4 and self.salario <= 1500 and self.estado_civil == 'S'):
+            return self.salario * 0.01
+        elif (self.dependentes >= 5 and self.salario <= 1500 and self.estado_civil == 'S'):
+            return self.salario * 0.00
 
-    def dependentes(self):
-        if self.dependentes == 0:
-            return '0'
-        elif self.dependentes == 1:
-            return '1'
-        elif self.dependentes == 2:
-            return '2'
-        elif self.dependentes == 3:
-            return '3'
-        elif self.dependentes == 4:
-            return '4'
-        elif self.dependentes >= 5:
-            return '5'
+    def desconto_salario_1500_2500_solteiro(self):
+        if (self.dependentes <= 1 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'S'):
+            return self.salario * 0.06
+        elif (self.dependentes == 2 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'S'):
+            return self.salario * 0.04
+        elif (self.dependentes == 3 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'S'):
+            return self.salario * 0.02
+        elif (self.dependentes == 4 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'S'):
+            return self.salario * 0.00
+        elif (self.dependentes >= 5 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'S'):
+            return self.salario * 0.00
 
-        return self.dependentes
+    def desconto_salario_2500_3500_solteiro(self):
+        if (self.dependentes <= 1 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'S'):
+            return self.salario * 0.07
+        elif (self.dependentes == 2 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'S'):
+            return self.salario * 0.06
+        elif (self.dependentes == 3 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'S'):
+            return self.salario * 0.04
+        elif (self.dependentes == 4 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'S'):
+            return self.salario * 0.02
+        elif (self.dependentes >= 5 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'S'):
+            return self.salario * 0.00
 
-    def salario(self):
-        return self.salario
+    def desconto_salario_3500_4500_solteiro(self):
+        if (self.dependentes <= 1 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'S'):
+            return self.salario * 0.08
+        elif (self.dependentes == 2 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'S'):
+            return self.salario * 0.07
+        elif (self.dependentes == 3 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'S'):
+            return self.salario * 0.05
+        elif (self.dependentes == 4 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'S'):
+            return self.salario * 0.02
+        elif (self.dependentes >= 5 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'S'):
+            return self.salario * 0.00
+#######################################################################################################################
+    def desconto_salario_1500_casado(self):
+        if (self.dependentes <= 1 and self.salario <= 1500 and self.estado_civil == 'C'):
+            return self.salario * 0.06
+        elif (self.dependentes == 2 and self.salario <= 1500 and self.estado_civil == 'C'):
+            return self.salario * 0.05
+        elif (self.dependentes == 3 and self.salario <= 1500 and self.estado_civil == 'C'):
+            return self.salario * 0.03
+        elif (self.dependentes == 4 and self.salario <= 1500 and self.estado_civil == 'C'):
+            return self.salario * 0.01
+        elif (self.dependentes >= 5 and self.salario <= 1500 and self.estado_civil == 'C'):
+            return self.salario * 0.00
+
+    def desconto_salario_1500_2500_casado(self):
+        if (self.dependentes <= 1 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'C'):
+            return self.salario * 0.06
+        elif (self.dependentes == 2 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'C'):
+            return self.salario * 0.04
+        elif (self.dependentes == 3 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'C'):
+            return self.salario * 0.02
+        elif (self.dependentes == 4 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'C'):
+            return self.salario * 0.01
+        elif (self.dependentes >= 5 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'C'):
+            return self.salario * 0.00
+
+    def desconto_salario_2500_3500_casado(self):
+        if (self.dependentes <= 1 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'C'):
+            return self.salario * 0.07
+        elif (self.dependentes == 2 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'C'):
+            return self.salario * 0.05
+        elif (self.dependentes == 3 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'C'):
+            return self.salario * 0.03
+        elif (self.dependentes == 4 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'C'):
+            return self.salario * 0.01
+        elif (self.dependentes >= 5 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'C'):
+            return self.salario * 0.00
+
+    def desconto_salario_3500_4500_casado(self):
+        if (self.dependentes <= 1 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'C'):
+            return self.salario * 0.08
+        elif (self.dependentes == 2 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'C'):
+            return self.salario * 0.06
+        elif (self.dependentes == 3 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'C'):
+            return self.salario * 0.04
+        elif (self.dependentes == 4 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'C'):
+            return self.salario * 0.02
+        elif (self.dependentes >= 5 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'C'):
+            return self.salario * 0.00
+    #######################################################################################################################
+    def desconto_salario_1500_viuvo(self):
+        if (self.dependentes <= 1 and self.salario <= 1500 and self.estado_civil == 'V'):
+            return self.salario * 0.05
+        elif (self.dependentes == 2 and self.salario <= 1500 and self.estado_civil == 'V'):
+            return self.salario * 0.04
+        elif (self.dependentes == 3 and self.salario <= 1500 and self.estado_civil == 'V'):
+            return self.salario * 0.03
+        elif (self.dependentes == 4 and self.salario <= 1500 and self.estado_civil == 'V'):
+            return self.salario * 0.02
+        elif (self.dependentes >= 5 and self.salario <= 1500 and self.estado_civil == 'V'):
+            return self.salario * 0.01
+
+    def desconto_salario_1500_2500_viuvo(self):
+        if (self.dependentes <= 1 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'V'):
+            return self.salario * 0.04
+        elif (self.dependentes == 2 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'V'):
+            return self.salario * 0.03
+        elif (self.dependentes == 3 and self.salario > 1500 and self.salario <= 2500 and  self.estado_civil == 'V'):
+            return self.salario * 0.02
+        elif (self.dependentes == 4 and self.salario > 1500 and self.salario <= 2500 and  self.estado_civil == 'V'):
+            return self.salario * 0.01
+        elif (self.dependentes >= 5 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+
+    def desconto_salario_2500_3500_viuvo(self):
+        if (self.dependentes <= 1 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'V'):
+            return self.salario * 0.03
+        elif (self.dependentes == 2 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'V'):
+            return self.salario * 0.02
+        elif (self.dependentes == 3 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'V'):
+            return self.salario * 0.01
+        elif (self.dependentes == 4 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+        elif (self.dependentes >= 5 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+
+    def desconto_salario_3500_4500_viuvo(self):
+        if (self.dependentes <= 1 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.02
+        elif (self.dependentes == 2 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.01
+        elif (self.dependentes == 3 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+        elif (self.dependentes == 4 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+        elif (self.dependentes >= 5 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+    #######################################################################################################################
+    def desconto_salario_1500_divorciado(self):
+        if (self.dependentes <= 1 and self.salario <= 1500 and self.estado_civil == 'D'):
+            return self.salario * 0.05
+        elif (self.dependentes == 2 and self.salario <= 1500 and self.estado_civil == 'D'):
+            return self.salario * 0.04
+        elif (self.dependentes == 3 and self.salario <= 1500 and self.estado_civil == 'D'):
+            return self.salario * 0.03
+        elif (self.dependentes == 4 and self.salario <= 1500 and self.estado_civil == 'D'):
+            return self.salario * 0.02
+        elif (self.dependentes >= 5 and self.salario <= 1500 and self.estado_civil == 'D'):
+            return self.salario * 0.01
+
+    def desconto_salario_1500_2500_divorciado(self):
+        if (self.dependentes <= 1 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'D'):
+            return self.salario * 0.04
+        elif (self.dependentes == 2 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'D'):
+            return self.salario * 0.03
+        elif (self.dependentes == 3 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'D'):
+            return self.salario * 0.02
+        elif (self.dependentes == 4 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'D'):
+            return self.salario * 0.01
+        elif (self.dependentes >= 5 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'D'):
+            return self.salario * 0.00
+
+    def desconto_salario_2500_3500_divorciado(self):
+        if (self.dependentes <= 1 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'D'):
+            return self.salario * 0.03
+        elif (self.dependentes == 2 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'D'):
+            return self.salario * 0.02
+        elif (self.dependentes == 3 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'D'):
+            return self.salario * 0.01
+        elif (self.dependentes == 4 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'D'):
+            return self.salario * 0.00
+        elif (self.dependentes >= 5 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'D'):
+            return self.salario * 0.00
+
+    def desconto_salario_3500_4500_divorciado(self):
+        if (self.dependentes <= 1 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'D'):
+            return self.salario * 0.02
+        elif (self.dependentes == 2 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'D'):
+            return self.salario * 0.01
+        elif (self.dependentes == 3 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'D'):
+            return self.salario * 0.00
+        elif (self.dependentes == 4 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'D'):
+            return self.salario * 0.00
+        elif (self.dependentes >= 5 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'D'):
+            return self.salario * 0.00
+    #######################################################################################################################
+
+    def desconto_salario_1500_viuvo(self):
+        if (self.dependentes <= 1 and self.salario <= 1500 and self.estado_civil == 'V'):
+            return self.salario * 0.05
+        elif (self.dependentes == 2 and self.salario <= 1500 and self.estado_civil == 'V'):
+            return self.salario * 0.04
+        elif (self.dependentes == 3 and self.salario <= 1500 and self.estado_civil == 'V'):
+            return self.salario * 0.03
+        elif (self.dependentes == 4 and self.salario <= 1500 and self.estado_civil == 'V'):
+            return self.salario * 0.02
+        elif (self.dependentes >= 5 and self.salario <= 1500 and self.estado_civil == 'V'):
+            return self.salario * 0.01
+
+    def desconto_salario_1500_2500_viuvo(self):
+        if (self.dependentes <= 1 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'V'):
+            return self.salario * 0.04
+        elif (self.dependentes == 2 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'V'):
+            return self.salario * 0.03
+        elif (self.dependentes == 3 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'V'):
+            return self.salario * 0.02
+        elif (self.dependentes == 4 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'V'):
+            return self.salario * 0.01
+        elif (self.dependentes >= 5 and self.salario > 1500 and self.salario <= 2500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+
+    def desconto_salario_2500_3500_viuvo(self):
+        if (self.dependentes <= 1 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'V'):
+            return self.salario * 0.03
+        elif (self.dependentes == 2 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'V'):
+            return self.salario * 0.02
+        elif (self.dependentes == 3 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'V'):
+            return self.salario * 0.01
+        elif (self.dependentes == 4 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+        elif (self.dependentes >= 5 and self.salario > 2500 and self.salario <= 3500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+
+    def desconto_salario_3500_4500_viuvo(self):
+        if (self.dependentes <= 1 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.08
+        elif (self.dependentes == 2 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.06
+        elif (self.dependentes == 3 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.04
+        elif (self.dependentes == 4 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.02
+        elif (self.dependentes >= 5 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+    #######################################################################################################################
 
 class Funcionario:
     def __init__(self, nome, nif, niss, estadocivil, dependentes, departamento, cargo, horastrabalhadas, valorhora, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada):
