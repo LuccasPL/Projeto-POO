@@ -251,10 +251,10 @@ class Salario:
     #######################################################################################################################
 
 class Funcionario:
-    def __init__(self, nome, nif, niss, estadocivil, dependentes, departamento, cargo, horastrabalhadas, valorhora, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada):
+    def __init__(self, nome, nif, nis, estadocivil, dependentes, departamento, cargo, horastrabalhadas, valorhora, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada):
         self.nome = nome
         self.nif = nif
-        self.niss = niss
+        self.nis = nis
         self.estadocivil = estadocivil
         self.dependentes = dependentes
         self.departamento = departamento
@@ -273,8 +273,8 @@ class Funcionario:
     def nif(self):
         return self.nif
 
-    def niss(self):
-        return self.niss
+    def nis(self):
+        return self.nis
 
     def estado_civil(self):
         if self.estadocivil == 'S':
@@ -287,70 +287,11 @@ class Funcionario:
             return 'Divorciado'
 
 
-    def dependentes(self):
-        return self.dependentes
-
     def departamento(self):
         return self.departamento
 
     def imposto_ssc(self):
         return self.salario() * 0.11
-# criar funcao de acordo com o estado civil, dependentes e salario
-    def desconto_solteiro_0_dependente(self):
-        if self.dependentes == 0 and self.salario() <= 900 and self.estadocivil == 'S':
-            return 0
-        elif self.dependentes == 1:
-            return self.salario() * 0.08
-        elif self.dependentes == 2:
-            return self.salario() * 0.06
-        elif self.dependentes == 3:
-            return self.salario() * 0.04
-        elif self.dependentes == 4:
-            return self.salario() * 0.02
-        elif self.dependentes >= 5:
-            return self.salario() * 0.00
-
-    def desconto_casado_0_dependente(self):
-        if self.dependentes == 0 and self.salario() <= 900 and self.estadocivil == 'C':
-            return 0
-        elif self.dependentes == 1:
-            return self.salario() * 0.12
-        elif self.dependentes == 2:
-            return self.salario() * 0.10
-        elif self.dependentes == 3:
-            return self.salario() * 0.08
-        elif self.dependentes == 4:
-            return self.salario() * 0.06
-        elif self.dependentes >= 5:
-            return self.salario() * 0.04
-
-    def desconto_viuvo_0_dependente(self):
-        if self.dependentes == 0 and self.salario() <= 900 and self.estadocivil == 'V':
-            return 0
-        elif self.dependentes == 1:
-            return self.salario() * 0.10
-        elif self.dependentes == 2:
-            return self.salario() * 0.08
-        elif self.dependentes == 3:
-            return self.salario() * 0.06
-        elif self.dependentes == 4:
-            return self.salario() * 0.04
-        elif self.dependentes >= 5:
-            return self.salario() * 0.02
-
-    def desconto_divorciado_0_dependente(self):
-        if self.dependentes == 0 and self.salario() <= 900 and self.estadocivil == 'D':
-            return 0
-        elif self.dependentes == 1:
-            return self.salario() * 0.10
-        elif self.dependentes == 2:
-            return self.salario() * 0.08
-        elif self.dependentes == 3:
-            return self.salario() * 0.06
-        elif self.dependentes == 4:
-            return self.salario() * 0.04
-        elif self.dependentes >= 5:
-            return self.salario() * 0.02
 
     def cargo(self):
         return self.cargo
