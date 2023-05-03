@@ -55,6 +55,18 @@ class Salario:
             return self.salario * 0.02
         elif (self.dependentes >= 5 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'S'):
             return self.salario * 0.00
+
+    def desconto_salario_4500_solteiro(self):
+        if (self.dependentes <= 1 and self.salario > 4500 and self.estado_civil == 'S'):
+            return self.salario * 0.09
+        elif (self.dependentes == 2 and self.salario > 4500 and self.estado_civil == 'S'):
+            return self.salario * 0.08
+        elif (self.dependentes == 3 and self.salario > 4500 and self.estado_civil == 'S'):
+            return self.salario * 0.06
+        elif (self.dependentes == 4 and self.salario > 4500 and self.estado_civil == 'S'):
+            return self.salario * 0.03
+        elif (self.dependentes >= 5 and self.salario > 4500 and self.estado_civil == 'S'):
+            return self.salario * 0.00
 #######################################################################################################################
     def desconto_salario_1500_casado(self):
         if (self.dependentes <= 1 and self.salario <= 1500 and self.estado_civil == 'C'):
@@ -103,6 +115,18 @@ class Salario:
             return self.salario * 0.02
         elif (self.dependentes >= 5 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'C'):
             return self.salario * 0.00
+
+    def desconto_salario_4500_casado(self):
+        if (self.dependentes <= 1 and self.salario > 4500 and self.estado_civil == 'C'):
+            return self.salario * 0.09
+        elif (self.dependentes == 2 and self.salario > 4500 and self.estado_civil == 'C'):
+            return self.salario * 0.07
+        elif (self.dependentes == 3 and self.salario > 4500 and self.estado_civil == 'C'):
+            return self.salario * 0.05
+        elif (self.dependentes == 4 and self.salario > 4500 and self.estado_civil == 'C'):
+            return self.salario * 0.03
+        elif (self.dependentes >= 5 and self.salario > 4500 and self.estado_civil == 'C'):
+            return self.salario * 0.01
     #######################################################################################################################
     def desconto_salario_1500_viuvo(self):
         if (self.dependentes <= 1 and self.salario <= 1500 and self.estado_civil == 'V'):
@@ -150,6 +174,18 @@ class Salario:
         elif (self.dependentes == 4 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
             return self.salario * 0.00
         elif (self.dependentes >= 5 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.00
+
+    def desconto_salario_4500_viuvo(self):
+        if (self.dependentes <= 1 and self.salario > 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.07
+        elif (self.dependentes == 2 and self.salario > 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.06
+        elif (self.dependentes == 3 and self.salario > 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.05
+        elif (self.dependentes == 4 and self.salario > 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.02
+        elif (self.dependentes >= 5 and self.salario > 4500 and self.estado_civil == 'V'):
             return self.salario * 0.00
     #######################################################################################################################
     def desconto_salario_1500_divorciado(self):
@@ -199,6 +235,18 @@ class Salario:
             return self.salario * 0.00
         elif (self.dependentes >= 5 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'D'):
             return self.salario * 0.00
+
+    def desconto_salario_4500_divorciado(self):
+        if (self.dependentes <= 1 and self.salario > 4500 and self.estado_civil == 'D'):
+            return self.salario * 0.08
+        elif (self.dependentes == 2 and self.salario > 4500 and self.estado_civil == 'D'):
+            return self.salario * 0.07
+        elif (self.dependentes == 3 and self.salario > 4500 and self.estado_civil == 'D'):
+            return self.salario * 0.06
+        elif (self.dependentes == 4 and self.salario > 4500 and self.estado_civil == 'D'):
+            return self.salario * 0.04
+        elif (self.dependentes >= 5 and self.salario > 4500 and self.estado_civil == 'D'):
+            return self.salario * 0.01
     #######################################################################################################################
 
     def desconto_salario_1500_viuvo(self):
@@ -248,10 +296,22 @@ class Salario:
             return self.salario * 0.02
         elif (self.dependentes >= 5 and self.salario > 3500 and self.salario <= 4500 and self.estado_civil == 'V'):
             return self.salario * 0.00
+
+    def desconto_salario_4500_viuvo(self):
+        if (self.dependentes <= 1 and self.salario > 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.10
+        elif (self.dependentes == 2 and self.salario > 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.08
+        elif (self.dependentes == 3 and self.salario > 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.06
+        elif (self.dependentes == 4 and self.salario > 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.04
+        elif (self.dependentes >= 5 and self.salario > 4500 and self.estado_civil == 'V'):
+            return self.salario * 0.02
     #######################################################################################################################
 
 class Funcionario:
-    def __init__(self, nome, nif, nis, estadocivil, dependentes, departamento, cargo, horastrabalhadas, valorhora, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada):
+    def __init__(self, nome, nif, nis, estadocivil, dependentes, departamento, cargo, horastrabalhadas, valorhora, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada,salario):
         self.nome = nome
         self.nif = nif
         self.nis = nis
@@ -266,9 +326,8 @@ class Funcionario:
         self.baixamedica = baixamedica
         self.iniciocontrato = iniciocontrato
         self.morada = morada
+        self.salario = salario
 
-    def salario(self):
-        return self.horastrabalhadas * self.valorhora
 
     def nif(self):
         return self.nif
@@ -312,15 +371,15 @@ class Funcionario:
         return self.morada
 
     def salarioliquido(self):
-        return self.salario() + (self.valorhoraextra * self.horaextra) - self.imposto_ssc() - (self.baixamedica * 30)
+        return self.salario(self.valorhora * self.valorhoraextra) + (self.valorhoraextra * self.horaextra) - self.imposto_ssc() - (self.baixamedica * 30)
 
     def __str__(self):
-        return f'Nome: {self.nome}\nNIF: {self.nif}\nNISS: {self.niss}\nEstado Civil: {self.estado_civil}\nDependentes: {self.dependentes}\nDepartamento: {self.departamento}\nCargo: {self.cargo}\nImposto: {self.imposto_ssc()}\nValor Hora Extra: {self.valorhoraextra}\nHoras Extra: {self.horaextra}\nBaixa Medica: {self.baixamedica}\nInício do Contrato: {self.iniciocontrato}\nMorada: {self.morada}\nSalario Bruto: {self.salario()}\nSalario Liquido: {self.salarioliquido()}\n'
+        return f'Nome: {self.nome}\nNIF: {self.nif}\nNIS: {self.nis}\nEstado Civil: {self.estado_civil}\nDependentes: {self.dependentes}\nDepartamento: {self.departamento}\nCargo: {self.cargo}\nImposto: {self.imposto_ssc()}\nValor Hora Extra: {self.valorhoraextra}\nHoras Extra: {self.horaextra}\nBaixa Medica: {self.baixamedica}\nInício do Contrato: {self.iniciocontrato}\nMorada: {self.morada}\nSalario Bruto: {self.salario()}\nSalario Liquido: {self.salarioliquido()}\n'
 
 print('Bem vindo ao sistema de cálculo de salario! \n')
 nome = input('Digite o nome do funcionario: \n')
 nif = int(input('Digite o NIF do funcionario: \n'))
-niss = int(input('Digite o NISS do funcionario: \n'))
+nis = int(input('Digite o NIS do funcionario: \n'))
 estadocivil = input('Digite o estado civil do funcionario: \n')
 dependentes = int(input('Digite a quantidade de dependentes do funcionario: \n'))
 departamento = input('Digite o departamento do funcionario: \n')
@@ -333,7 +392,7 @@ baixamedica = int(input('Digite a quantidade de baixas medicas até o momento: \
 iniciocontrato = str(input('Digite a data de inicio do contrato: \n'))
 morada = str(input('Digite a morada do funcionario: \n'))
 print('----------------------------------------')
-funcionario = Funcionario(nome, nif, niss, estadocivil, dependentes, departamento, cargo, horastrabalhadas, valorhora, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada)
+funcionario = Funcionario(nome, nif, nis, estadocivil, dependentes, departamento, cargo, horastrabalhadas, valorhora, horaextra, valorhoraextra, baixamedica, iniciocontrato, morada)
 
 print(funcionario)
 
