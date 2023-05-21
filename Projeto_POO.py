@@ -1,13 +1,11 @@
 # calculo de salario, imposto e desconto, com base em horas trabalhadas e valor da hora, com base em uma classe
 # criar uma classe salario para obter salarios diferentes de acordo com o estado civil, dependentes e salario.
 
-
 class Salario:
     def __init__(self, estado_civil, dependentes, salario):
         self.estado_civil = estado_civil
         self.dependentes = dependentes
         self.salario = salario
-
     def descontos(self):
         if (self.salario <= 1500 and self.estado_civil == 'S'):
             return self.desconto_salario_1500_solteiro()
@@ -109,8 +107,7 @@ class Salario:
             return self.salario * 0.03
         elif (self.dependentes >= 5):
             return self.salario * 0.00
-
-    #######################################################################################################################
+    #####################################################################################
     def desconto_salario_1500_casado(self):
         if (self.dependentes <= 1):
             return self.salario * 0.06
@@ -170,8 +167,7 @@ class Salario:
             return self.salario * 0.03
         elif (self.dependentes >= 5):
             return self.salario * 0.01
-
-    #######################################################################################################################
+    ###########################################################################
     def desconto_salario_1500_viuvo(self):
         if (self.dependentes <= 1):
             return self.salario * 0.05
@@ -231,8 +227,7 @@ class Salario:
             return self.salario * 0.02
         elif (self.dependentes >= 5):
             return self.salario * 0.00
-
-    #######################################################################################################################
+    ###############################################################################
     def desconto_salario_1500_divorciado(self):
         if (self.dependentes <= 1):
             return self.salario * 0.05
@@ -292,10 +287,7 @@ class Salario:
             return self.salario * 0.04
         elif (self.dependentes >= 5):
             return self.salario * 0.01
-
-    #######################################################################################################################
-
-
+    #############################################################################################################
 class Funcionario:
     def __init__(self, nome, nif, nis, email, estadocivil, dependentes, departamento, cargo, horastrabalhadas,
                  valorhora,
@@ -318,9 +310,28 @@ class Funcionario:
         self.observacoes = observacoes
 
     def load_from_db(self, conn, id):
-        # TODO: SELECT a funcionarios.
-        # self.nif = cur[1]
-        pass
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM funcionarios WHERE id = ?", (id,))
+        row = cursor.fetchone()
+        self.nome = row[1]
+        self.nif = row[2]
+        self.nis = row[3]
+        self.email = row[4]
+        self.estadocivil = row[5]
+        self.dependentes = row[6]
+        self.departamento = row[7]
+        self.cargo = row[8]
+        self.valorhora = row[9]
+        self.horastrabalhadas = row[10]
+        self.valorhoraextra = row[11]
+        self.horaextra = row[12]
+        self.baixamedica = row[13]
+        self.iniciocontrato = row[14]
+        self.morada = row[15]
+        self.observacoes = row[16]
+
+    def nome(self):
+        return self.nome
 
     def nif(self):
         return self.nif
@@ -375,18 +386,42 @@ class Funcionario:
         return self.salario() * 0.11
 
     def salario_liquido(self):
-        return self.salario() - self.imposto_ssc()
+        return self.salario() - self.imposto_ssc() - self.desconto_salario()
 
     def desconto_salario(self):
         calc_salario = Salario(self.estadocivil, self.dependentes, self.salario())
         return calc_salario.descontos()
 
     def salvar_bd(self, conn):
-        # TODO: INSERT INTO funcionarios whatever. self.nif, self.nis, etc.
-        pass
+        cur = conn.cursor()
+        cur.execute('INSERT INTO trabalhador VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
+                    (self.nome, self.nif, self.nis, self.email, self.estadocivil, self.dependentes, self.departamento,
+                     self.cargo, self.valorhora, self.horastrabalhadas, self.valorhoraextra, self.horaextra,
+                     self.baixamedica, self.iniciocontrato, self.morada, self.observacoes))
+        conn.commit()
+
+    def atualizar_bd(self, conn, id):
+        cur = conn.cursor()
+        cur.execute('UPDATE trabalhador SET nome=?, nif=?, nis=?, email=?, estadocivil=?, dependentes=?,'
+                    'departamento=?, cargo=?, valorhora=?, horastrabalhadas=?, valorhoraextra=?, horaextra=?,'
+                    'baixamedica=?, iniciocontrato=?, morada=?, observacoes=? WHERE id=?',
+                    (self.nome, self.nif, self.nis, self.email, self.estadocivil, self.dependentes, self.departamento,
+                     self.cargo, self.valorhora, self.horastrabalhadas, self.valorhoraextra, self.horaextra,
+                     self.baixamedica, self.iniciocontrato, self.morada, self.observacoes, id))
+        conn.commit()
+
+    def deletar_bd(self, conn, id):
+        cur = conn.cursor()
+        cur.execute('DELETE FROM trabalhador WHERE id=?', (id,))
+        conn.commit()
+
 
     def __str__(self):
-        return f'Nome: {self.nome}\nNIF: {self.nif}\nNIS: {self.nis}\nE-mail: {self.email}\nEstado Civil: {self.estado_civil}\nDependentes: {self.dependentes}\nDepartamento: {self.departamento}\nCargo: {self.cargo}\nImposto SSC: {self.imposto_ssc()}\nValor Hora Extra: {self.valorhoraextra}\nHoras Extra: {self.horaextra}\nBaixa Medica: {self.baixamedica}\nInício do Contrato: {self.iniciocontrato}\nMorada: {self.morada}\nObservações: {self.observacoes}\n'
+        return f'Nome: {self.nome}\nNIF: {self.nif}\nNIS: {self.nis}\nE-mail: {self.email}\n' \
+               f'Estado Civil: {self.estado_civil()}\nDependentes: {self.dependentes}\nDepartamento: {self.departamento}\n' \
+               f'Cargo: {self.cargo}\nImposto SSC: {self.imposto_ssc()}\nValor Hora Extra: {self.valorhoraextra}\n' \
+               f'Horas Extra: {self.horaextra}\nBaixa Médica: {self.baixamedica}\nInício do Contrato: {self.iniciocontrato}\n' \
+               f'Morada: {self.morada}\nObservações: {self.observacoes}\n'
 
 
 print('Bem vindo ao sistema de cálculo de salario! \n')
@@ -394,7 +429,7 @@ nome = input('Digite o nome do funcionario: \n')
 nif = int(input('Digite o NIF do funcionario: \n'))
 nis = int(input('Digite o NIS do funcionario: \n'))
 email = input('Digite o e-mail do funcionário: \n')
-estadocivil = input('Digite o estado civil do funcionario: \n')
+estadocivil = str(input('Digite o estado civil do funcionario: \n'))
 dependentes = int(input('Digite a quantidade de dependentes do funcionario: \n'))
 departamento = input('Digite o departamento do funcionario: \n')
 cargo = input('Digite o cargo do funcionario: \n')
@@ -412,7 +447,8 @@ funcionario = Funcionario(nome, nif, nis, email, estadocivil, dependentes, depar
                           horaextra, valorhoraextra, baixamedica, iniciocontrato, morada, observacoes)
 
 print(funcionario)
-print("Salario: " + str(funcionario.salario()))
+print("Salário Base: " + str(funcionario.salario()))
 print("Imposto SSC: " + str(funcionario.imposto_ssc()))
-print("Salario Liquido: " + str(funcionario.salario_liquido()))
-# funcionario.salvar_bd(conn)
+print("Descontos:  " + str(funcionario.desconto_salario()))
+print("Salário Líquido: " + str(funcionario.salario_liquido()))
+

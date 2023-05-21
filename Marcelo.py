@@ -23,19 +23,20 @@ app.title("Registro de Trabalhadores")
 
 reg_fields = [
     {"f_label": "Nome", "row": 0, "column": 0, "edit": True},
-    {"f_label": "Cargo", "row": 2, "column": 0, "edit": True},
-    {"f_label": "Departamento", "row": 3, "column": 0, "edit": True},
+    {"f_label": "NIF", "row": 1, "column": 0, "edit": True},
+    {"f_label": "NIS", "row": 2, "column": 0, "edit": True},
+    {"f_label": "E-mail", "row": 3, "column": 0, "edit": True},
     {"f_label": "Estado Civil", "row": 4, "column": 0, "edit": True},
     {"f_label": "Número de Dependentes", "row": 5, "column": 0, "edit": True},
-    {"f_label": "Início do Contrato", "row": 6, "column": 0, "edit": False},
-    {"f_label": "Valor da Hora", "row": 7, "column": 0, "edit": True},
-    {"f_label": "Valor da Hora Extra", "row": 8, "column": 0, "edit": True},
+    {"f_label": "Departamento", "row": 6, "column": 0, "edit": True},
+    {"f_label": "Cargo", "row": 7, "column": 0, "edit": True},
+    {"f_label": "Valor da Hora", "row": 8, "column": 0, "edit": True},
     {"f_label": "Horas Trabalhadas", "row": 9, "column": 0, "edit": True},
-    {"f_label": "Horas Extras", "row": 10, "column": 0, "edit": True},
-    {"f_label": "Dias Trabalhados", "row": 11, "column": 0, "edit": True},
+    {"f_label": "Valor da Hora Extra", "row": 10, "column": 0, "edit": True},
+    {"f_label": "Horas Extras", "row": 11, "column": 0, "edit": True},
     {"f_label": "Baixa Médica", "row": 12, "column": 0, "edit": True},
-    {"f_label": "Morada", "row": 13, "column": 0, "edit": True},
-    {"f_label": "Turno", "row": 14, "column": 0, "edit": True},
+    {"f_label": "Início do Contrato", "row": 13, "column": 0, "edit": False},
+    {"f_label": "Morada", "row": 14, "column": 0, "edit": True},
     {"f_label": "Observações", "row": 15, "column": 0, "edit": True},
 ]
 
@@ -45,4 +46,7 @@ for field in reg_fields:
 reg_button = tk.Button(app, text="Registrar", command = new_func.get_new_registration())
 reg_button.grid(row=16, column=0, columnspan=2)
 
+
+
 app.mainloop()
+
