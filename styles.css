@@ -1,0 +1,66 @@
+* {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    padding: 20px;
+    background: linear-gradient(to bottom, #e6f7ff, #b3d9ff);
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #climaForm {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #climaForm label,
+  #climaForm button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  #climaForm input[type="text"] {
+    width: calc(100% - 22px); 
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #climaForm button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #climaForm button:hover {
+    background-color: #0056b3;
+  }
+  
+  #resultado {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fffefe;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  
+  
